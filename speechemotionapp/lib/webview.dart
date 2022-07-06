@@ -5,7 +5,6 @@ import 'package:webviewx/webviewx.dart';
 
 import 'helper.dart';
 
-
 class WebViewXPage extends StatefulWidget {
   const WebViewXPage({
     Key? key,
@@ -25,20 +24,18 @@ class _WebViewXPageState extends State<WebViewXPage> {
       '(read the documentation to find out why).';
 
   Size get screenSize => MediaQuery.of(context).size;
-@override
+  @override
   void initState() {
     // TODO: implement initState
 
-
- 
     super.initState();
   }
+
   @override
   void dispose() {
     webviewController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +46,12 @@ class _WebViewXPageState extends State<WebViewXPage> {
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: 
-       
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(width: 0.2),
-                ),
-                child: _buildWebViewX(),
-              ),
-             
-          
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: 0.2),
+            ),
+            child: _buildWebViewX(),
+          ),
         ),
       ),
     );
@@ -66,21 +59,17 @@ class _WebViewXPageState extends State<WebViewXPage> {
 
   Widget _buildWebViewX() {
     return WebViewX(
-
       key: const ValueKey('webviewx'),
       initialContent: initialContent,
       initialSourceType: SourceType.html,
-      height: screenSize.height ,
-      width: screenSize.width ,
+      height: screenSize.height,
+      width: screenSize.width,
       onWebViewCreated: (controller) {
-        
-        
-        
         webviewController = controller;
-      webviewController.loadContent(
-      'https://share.streamlit.io/cybermaryver/speech-emotion-webapp/app.py',
-      SourceType.url,
-    );
+        webviewController.loadContent(
+          'https://techiesingh-speech-emotion-app-1qgobb.streamlitapp.com/',
+          SourceType.url,
+        );
       },
       onPageStarted: (src) =>
           debugPrint('A new page has started loading: $src\n'),
@@ -123,12 +112,6 @@ class _WebViewXPageState extends State<WebViewXPage> {
     );
   }
 
- 
-
-
-
- 
-
   Future<void> _goForward() async {
     if (await webviewController.canGoForward()) {
       await webviewController.goForward();
@@ -151,7 +134,6 @@ class _WebViewXPageState extends State<WebViewXPage> {
     webviewController.reload();
   }
 
-
   Widget buildSpace({
     Axis direction = Axis.horizontal,
     double amount = 0.2,
@@ -169,6 +151,4 @@ class _WebViewXPageState extends State<WebViewXPage> {
             height: direction == Axis.vertical ? amount : null,
           );
   }
-
-
 }

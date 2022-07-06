@@ -164,17 +164,17 @@ def main():
     side_img = Image.open("images/emotion3.jpg")
     with st.sidebar:
         st.image(side_img, width=300)
-    st.sidebar.subheader("Menu")
+    # st.sidebar.subheader("Menu") 
     # website_menu = st.sidebar.selectbox("Menu", ("Emotion Recognition", "Project description", "Our team",
                                                 #  "Leave feedback", "Relax"))
     # website_menu = st.sidebar.selectbox("Menu", ("Emotion Recognition"))
     st.set_option('deprecation.showfileUploaderEncoding', False)
     website_menu = "Emotion Recognition"
     if website_menu == "Emotion Recognition":
-        st.sidebar.subheader("Model")
+        # st.sidebar.subheader("Model")
         # model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs", "mel-specs"))
         em3 = em6 = em7 = gender = False
-        st.sidebar.subheader("Settings")
+        # st.sidebar.subheader("Settings")
 
         st.markdown("## Upload the file")
         with st.container():
@@ -219,7 +219,7 @@ def main():
                     fig = plt.figure(figsize=(10, 2))
                     fig.set_facecolor('#d1d1e0')
                     plt.title("Wave-form")
-                    librosa.display.waveplot(wav, sr=44100)
+                    librosa.display.waveshow(wav, sr=44100)
                     plt.gca().axes.get_yaxis().set_visible(False)
                     plt.gca().axes.get_xaxis().set_visible(False)
                     plt.gca().axes.spines["right"].set_visible(False)
@@ -239,10 +239,14 @@ def main():
             #         st.write("Error while loading the file")
         model_type="mfccs"
         if model_type == "mfccs":
-            em3 = st.sidebar.checkbox("3 emotions", True)
-            em6 = st.sidebar.checkbox("6 emotions", True)
-            em7 = st.sidebar.checkbox("7 emotions")
-            gender = st.sidebar.checkbox("gender")
+            # em3 = st.sidebar.checkbox("3 emotions", True)
+            # em6 = st.sidebar.checkbox("6 emotions", True)
+            # em7 = st.sidebar.checkbox("7 emotions")
+            # gender = st.sidebar.checkbox("gender")
+            em3 = True
+            em6 = True
+            # em7 = True
+            gender = True
 
         elif model_type == "mel-specs":
             st.sidebar.warning("This model is temporarily disabled")
