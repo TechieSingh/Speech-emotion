@@ -17,6 +17,7 @@ model = load_model("model3.h5")
 # constants
 starttime = datetime.now()
 
+
 CAT6 = ['fear', 'angry', 'neutral', 'happy', 'sad', 'surprise']
 CAT7 = ['fear', 'disgust', 'neutral', 'happy', 'sad', 'surprise', 'angry']
 CAT3 = ["positive", "neutral", "negative"]
@@ -154,17 +155,24 @@ def plot_polar(fig, predictions=TEST_PRED, categories=TEST_CAT,
 
 
 def main():
+    # hide_menu_style = """
+    #     <style>
+    #     #MainMenu {visibility: hidden;}
+    #     </style>
+    #     """
+    # st.markdown(hide_menu_style, unsafe_allow_html=True)
     side_img = Image.open("images/emotion3.jpg")
     with st.sidebar:
         st.image(side_img, width=300)
     st.sidebar.subheader("Menu")
-    website_menu = st.sidebar.selectbox("Menu", ("Emotion Recognition", "Project description", "Our team",
-                                                 "Leave feedback", "Relax"))
+    # website_menu = st.sidebar.selectbox("Menu", ("Emotion Recognition", "Project description", "Our team",
+                                                #  "Leave feedback", "Relax"))
+    # website_menu = st.sidebar.selectbox("Menu", ("Emotion Recognition"))
     st.set_option('deprecation.showfileUploaderEncoding', False)
-
+    website_menu = "Emotion Recognition"
     if website_menu == "Emotion Recognition":
         st.sidebar.subheader("Model")
-        model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs", "mel-specs"))
+        # model_type = st.sidebar.selectbox("How would you like to predict?", ("mfccs", "mel-specs"))
         em3 = em6 = em7 = gender = False
         st.sidebar.subheader("Settings")
 
@@ -229,7 +237,7 @@ def main():
             #             time.sleep(3)
             #         st.success("Recording completed")
             #         st.write("Error while loading the file")
-
+        model_type="mfccs"
         if model_type == "mfccs":
             em3 = st.sidebar.checkbox("3 emotions", True)
             em6 = st.sidebar.checkbox("6 emotions", True)
@@ -302,7 +310,7 @@ def main():
                     plt.gca().axes.spines["left"].set_visible(False)
                     plt.gca().axes.spines["top"].set_visible(False)
                     st.write(fig2)
-
+            model_type == "mfccs"
             if model_type == "mfccs":
                 st.markdown("## Predictions")
                 with st.container():
