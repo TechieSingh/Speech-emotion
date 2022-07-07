@@ -67,7 +67,7 @@ class _WebViewXPageState extends State<WebViewXPage> {
       onWebViewCreated: (controller) {
         webviewController = controller;
         webviewController.loadContent(
-          'https://techiesingh-speech-emotion-app-1qgobb.streamlitapp.com/',
+          'http://127.0.0.1:8501',
           SourceType.url,
         );
       },
@@ -93,7 +93,7 @@ class _WebViewXPageState extends State<WebViewXPage> {
         )
       },
       webSpecificParams: const WebSpecificParams(
-        printDebugInfo: true,
+        printDebugInfo: false,
       ),
       mobileSpecificParams: const MobileSpecificParams(
         androidEnableHybridComposition: true,
