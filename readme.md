@@ -15,5 +15,3 @@ After that you can run the app
 ```sh
 !streamlit run app.py
 ```
-## Usage
-Example of an execution:
