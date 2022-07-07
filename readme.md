@@ -17,6 +17,3 @@ After that you can run the app
 ```
 ## Usage
 Example of an execution:
-
-You can try the app [here](https://share.streamlit.io/cybermaryver/speech-emotion-webapp/app.py)
-![Alt Text](demo2.gif)
